@@ -1,7 +1,6 @@
 [
   {
     "id": 1,
-    "titolo": "Nota del latino",
     "testo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "data": "2026-09-28",
     "ora": "14:30"
