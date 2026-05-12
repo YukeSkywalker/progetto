@@ -13,11 +13,11 @@ app.use(cors());
 app.use(express.json());
 
 //  Configurazione FrontEnd (static files)
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, '..' ,'client')));
 
 // Rotta Principale 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', '..' , 'index.html'));
 });
 
 
