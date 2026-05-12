@@ -6,6 +6,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//  Static frontend
+app.use(express.static(path.join(__dirname, 'client')));
+
 let notes = [
 { id: 1, text: "Prima notassssss" },
 { id: 2, text: "Seconda nota e bastaaaaaasecondo" },
