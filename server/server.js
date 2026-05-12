@@ -3,6 +3,9 @@ const cors = require("cors");
 
 const app = express();
 
+const IP = process.env.IP || "localhost";
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
 app.use(express.json());
 
@@ -45,6 +48,6 @@ message: "Nota eliminata"
 });
 
 
-app.listen(3000, () => {
-console.log("Server avviato su http://localhost:3000;");
+app.listen(PORT, () => {
+console.log(`Server disponibile su http://${IP}:${PORT}.`);
 });
