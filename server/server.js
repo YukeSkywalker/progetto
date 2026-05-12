@@ -46,5 +46,5 @@ message: "Nota eliminata"
 
 
 app.listen(3000, () => {
-console.log("Server avviato su http://localhost:3000&quot;);
+console.log("Server avviato su http://localhost:3000;");
 });
