@@ -1,24 +1,59 @@
 <!DOCTYPE html>
-<html lang="it">
-
+<html lang="it" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Gestione Note</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenNotes — Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
 
-    <h1>Gestione Note</h1>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <h1><span>Zen</span>Notes</h1>
+            </div>
+            
+            <div class="date-widget">
+                <i class="fa-regular fa-calendar"></i>
+                <span id="currentDate">--/--/----</span>
+            </div>
 
-    <input type="text" id="noteInput" placeholder="Scrivi una nota">
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">Dashboard</a>
+                <a href="note.html" class="nav-link">Note Salvate</a>
+                <button id="themeToggle" class="theme-icon-btn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-    <button onclick="addNote()">
-        Aggiungi Note
-    </button>
+    <main class="container">
+        <div class="glass-card welcome-card">
+            <h2>Bentornato!</h2>
+            <p>Crea una nuova nota veloce qui sotto.</p>
+        </div>
 
-    <ul id="notesList"></ul>
-    
-<script src="js/script.js"></script>
+        <div class="glass-card input-card">
+            <h3>Aggiungi nota</h3>
+            <div class="input-wrapper">
+                <input type="text" id="noteInput" placeholder="Scrivi qualcosa di importante...">
+                <button onclick="addNote()" class="btn-send">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <span id="totalNotes">0</span> Note in archivio
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/notes-list.js"></script>
 </body>
-
 </html>

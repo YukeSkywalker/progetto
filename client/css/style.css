@@ -1,0 +1,178 @@
+/* VARIABILI COLORE (Light/Dark) */
+:root {
+    --bg-body: #f4f7f9;
+    --glass: #ffffff;
+    --text: #2d3436;
+    --accent: #6c5ce7; /* Viola Zen */
+    --accent-hover: #5b4bc4;
+    --shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] {
+    --bg-body: #121214;
+    --glass: #1e1e21;
+    --text: #f5f5f5;
+    --accent: #a29bfe;
+    --shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* RESET E BASE */
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* TESTATA */
+.main-header {
+    background: var(--glass);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.header-content {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO VIOLA */
+.logo h1 { font-size: 1.5rem; margin: 0; letter-spacing: -0.5px; }
+.logo h1 span { color: var(--accent); }
+
+/* NAVIGAZIONE ESTETICA */
+.nav-link {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    margin-left: 20px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: 0.3s;
+    opacity: 0.6;
+}
+.nav-link:hover, .nav-link.active {
+    opacity: 1;
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--accent);
+}
+
+.theme-icon-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* DATA WIDGET */
+.date-widget {
+    background: rgba(108, 92, 231, 0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* LAYOUT CARD (60% LARGHEZZA) */
+.container {
+    width: 60%;
+    max-width: 800px;
+    margin: 40px auto;
+    flex: 1;
+}
+
+.glass-card {
+    background: var(--glass);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* INPUT BOX FORMATTATA */
+.input-wrapper {
+    background: var(--bg-body);
+    padding: 8px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px;
+    font-size: 1.05rem;
+    color: var(--text);
+    outline: none;
+}
+
+.btn-send {
+    background: var(--accent);
+    color: white;
+    border: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-send:hover { transform: scale(1.05); background: var(--accent-hover); }
+
+/* NOTE NELLO STORICO */
+.note-item {
+    background: var(--glass);
+    padding: 20px 30px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+.note-item h4 { margin: 0; font-size: 0.8rem; opacity: 0.5; color: var(--accent); }
+.note-item p { margin: 5px 0 0 0; font-size: 1.1rem; }
+
+/* FOOTER IN BASSO AL CENTRO */
+.main-footer {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    font-size: 0.9rem;
+    opacity: 0.5;
+    font-weight: 500;
+}
+
+#totalNotes, #totalNotesArchive {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* STATO VUOTO */
+.empty-state {
+    padding: 50px;
+    text-align: center;
+    opacity: 0.4;
+    border: 2px dashed var(--accent);
+    border-radius: 20px;
+}
