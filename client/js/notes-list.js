@@ -1,4 +1,3 @@
-const API_URL = "http://localhost:3000"; 
 
 // Funzione principale per caricare le note nello storico
 async function loadNotesArchive() {
