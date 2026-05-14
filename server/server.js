@@ -54,6 +54,13 @@ app.delete("/notes/:id", (req, res) => {
     res.json({ message: "Nota eliminata con successo" });
 });
 
+//db json get
+app.get("/notes", (req, res) => {
+    // Leggiamo le note dal file ogni volta per garantire dati aggiornati
+    const data = fs.readFileSync(dbPath, 'utf-8');
+    const notes = JSON.parse(data);
+    res.json(notes);
+});
 
 // -------- Rotte API ----------- 
 
