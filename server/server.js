@@ -28,9 +28,9 @@ app.get("/", (req, res) => {
 // DB JSON post
 app.post("/notes", (req, res) => {
     const newNote = {
-        id: notes.length > 0 ? Math.max(...notes.map(n => n.id)) + 1 : 1, // ID incrementale sicuro
-        testo: req.body.testo,
-        data: new Date().toLocaleDateString(), // Aggiungiamo data e ora come nel tuo JSON
+        id: notes.length > 0 ? Math.max(...notes.map(n => n.id)) + 1 : 1, 
+        text: req.body.text,
+        data: new Date().toLocaleDateString(), 
         ora: new Date().toLocaleTimeString()
     };
 
