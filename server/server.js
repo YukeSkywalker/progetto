@@ -7,6 +7,7 @@ const fs = require("fs");
 
 
 const dbPath = path.join(__dirname, 'db.json');
+let notes = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
 
 // Configurazione variabili ambiente per IP e PORT
 const IP = process.env.IP || "localhost";
