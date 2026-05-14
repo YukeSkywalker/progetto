@@ -3,6 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const app = express();
+const fs = require("fs");
+
+
+const dbPath = path.join(__dirname, 'db.json');
 
 // Configurazione variabili ambiente per IP e PORT
 const IP = process.env.IP || "localhost";
@@ -20,14 +24,35 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, 'client', '..' , 'index.html'));
 });
 
+// DB JSON post
+app.post("/notes", (req, res) => {
+    const newNote = {
+        id: notes.length > 0 ? Math.max(...notes.map(n => n.id)) + 1 : 1, // ID incrementale sicuro
+        testo: req.body.testo,
+        data: new Date().toLocaleDateString(), // Aggiungiamo data e ora come nel tuo JSON
+        ora: new Date().toLocaleTimeString()
+    };
 
+    notes.push(newNote);
 
-// Leva sto DB finto 
-let notes = [
-    { id: 1, text: "Prima notassssss" },
-    { id: 2, text: "Seconda nota e bastaaaaaasecondo" },
-    { id: 3, text: "terza" }
-];
+    // SALVATAGGIO SU FILE
+    fs.writeFileSync(dbPath, JSON.stringify(notes, null, 2), 'utf-8');
+
+    res.json(newNote);
+});
+
+//db json delete
+app.delete("/notes/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    
+    // Sovrascriviamo l'array locale
+    notes = notes.filter(note => note.id !== id);
+
+    // AGGIORNAMENTO DEL FILE
+    fs.writeFileSync(dbPath, JSON.stringify(notes, null, 2), 'utf-8');
+
+    res.json({ message: "Nota eliminata con successo" });
+});
 
 
 // -------- Rotte API ----------- 
